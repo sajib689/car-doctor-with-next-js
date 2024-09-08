@@ -16,7 +16,7 @@ const Banner = () => {
           
           <div className="flex justify-center space-x-4"> {/* Center buttons and add space between them */}
             <button className="btn btn-primary">Discover More</button>
-            <button className="btn btn-outline text-white">Latest Project</button>
+            <button className="btn btn-outline text-white hover:btn-primary">Latest Project</button>
           </div>
         </div>
       </div>
