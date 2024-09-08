@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaCartPlus } from "react-icons/fa";
+import { IoIosSearch } from "react-icons/io";
 
 const Navbar = () => {
     const links = 
     <>
-    <li><Link href='/'>Home</Link></li>
-    <li><Link href='/'>About</Link></li>
-    <li><Link href='/'>Services</Link></li>
-    <li><Link href='/'>Blog</Link></li>
-    <li><Link href='/'>Contact</Link></li>
+    <li className='font-semibold hover:text-primary duration-300'><Link href='/'>Home</Link></li>
+    <li className='font-semibold hover:text-primary duration-300'><Link href='/about'>About</Link></li>
+    <li className='font-semibold hover:text-primary duration-300'><Link href='/services'>Services</Link></li>
+    <li className='font-semibold hover:text-primary duration-300'><Link href='/blog'>Blog</Link></li>
+    <li className='font-semibold hover:text-primary duration-300'><Link href='/contact'>Contact</Link></li>
     </>
   return (
    <div className=' bg-base-100'>
@@ -45,7 +47,12 @@ const Navbar = () => {
       </ul>
     </div>
     <div className="navbar-end">
-      <a className="btn">Button</a>
+      <div className='flex space-x-4 me-5'>
+      <FaCartPlus className='text-2xl hover:text-primary cursor-pointer'/>
+      <IoIosSearch className='text-2xl hover:text-primary cursor-pointer'/>
+
+      </div>
+      <a className="btn btn-outline btn-primary duration-300">Appointment</a>
     </div>
   </div>
    </div>
