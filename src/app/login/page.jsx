@@ -1,8 +1,11 @@
 import Image from "next/image";
+import { FaGoogle } from "react-icons/fa6";
+import { FaGithub,FaLinkedin  } from "react-icons/fa";
 
 const Login = () => {
   return (
     <div className="container mx-auto py-24">
+        
       <div className="grid grid-cols-2 gap-12">
         <div>
           <Image
@@ -12,7 +15,8 @@ const Login = () => {
             width={540}
           />
         </div>
-        <div className="border-2 p-12">
+        <div className="border-2 p-12 rounded-lg">
+        <h1 className='text-3xl mb-10 text-center font-semibold text-primary'>Sign In</h1>
           <form className="card-body">
             <div className="form-control">
               <label className="label">
@@ -47,6 +51,11 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
+          <div className='flex justify-center items-center'>
+            <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full'><FaGoogle /></button>
+            <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full ms-2'><FaGithub /></button>
+            <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full ms-2'><FaLinkedin  /></button>
+          </div>
         </div>
       </div>
     </div>
