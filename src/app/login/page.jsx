@@ -1,6 +1,8 @@
+'use client'
 import Image from "next/image";
 import { FaGoogle } from "react-icons/fa6";
 import { FaGithub,FaLinkedin  } from "react-icons/fa";
+import Link from "next/link";
 
 const Login = () => {
   return (
@@ -55,6 +57,10 @@ const Login = () => {
             <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full'><FaGoogle /></button>
             <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full ms-2'><FaGithub /></button>
             <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full ms-2'><FaLinkedin  /></button>
+          
+          </div>
+          <div className='text-center mt-5'>
+          <p>Dont't have an account? <Link className='text-primary' href='/signup'>Sign Up</Link></p>
           </div>
         </div>
       </div>
