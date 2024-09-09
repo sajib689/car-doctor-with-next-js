@@ -52,7 +52,8 @@ const Navbar = () => {
       <IoIosSearch className='text-2xl hover:text-primary cursor-pointer'/>
 
       </div>
-      <a className="btn btn-outline btn-primary duration-300">Appointment</a>
+      <Link href='/' className="btn btn-outline btn-primary duration-300">Appointment</Link>
+      <Link href='/login' className="ms-2 btn btn-outline btn-primary duration-300">Login</Link>
     </div>
   </div>
    </div>

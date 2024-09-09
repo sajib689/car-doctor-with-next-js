@@ -5,6 +5,14 @@ import { FaGithub,FaLinkedin  } from "react-icons/fa";
 import Link from "next/link";
 
 const Login = () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault()
+    const form = e.target
+    const name = form.name.value
+    const email = form.email.value 
+    const password = form.password.value
+}
+
   return (
     <div className="container mx-auto py-24">
         
@@ -19,7 +27,7 @@ const Login = () => {
         </div>
         <div className="border-2 p-12 rounded-lg">
         <h1 className='text-3xl mb-10 text-center font-semibold text-primary'>Sign In</h1>
-          <form className="card-body">
+          <form onSubmit={handleSignUp} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -60,7 +68,7 @@ const Login = () => {
           
           </div>
           <div className='text-center mt-5'>
-          <p>Dont't have an account? <Link className='text-primary' href='/signup'>Sign Up</Link></p>
+          <p>Dontt have an account? <Link className='text-primary' href='/signup'>Sign Up</Link></p>
           </div>
         </div>
       </div>
