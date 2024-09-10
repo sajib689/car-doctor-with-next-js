@@ -9,8 +9,15 @@ const Signup = () => {
     const handleLogin = async (e) => {
         e.preventDefault()
         const form = e.target
+        const name = form.name.value
         const email = form.email.value 
         const password = form.password.value
+        const newUser = {
+          name,
+          email,
+          password,
+        }
+        console.log(newUser)
     }
     return (
         <div className="container mx-auto py-24">
