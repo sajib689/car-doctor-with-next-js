@@ -17,7 +17,14 @@ const Signup = () => {
           email,
           password,
         }
-        console.log(newUser)
+        const resp = await fetch('/signup/api',{
+          method: 'POST',
+          body: JSON.stringify(newUser),
+          headers: {
+            'content-type': 'application/json'
+          },
+        })
+        if(resp.status === 200) return form.reset()
     }
     return (
         <div className="container mx-auto py-24">
