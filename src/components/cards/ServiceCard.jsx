@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const ServiceCard = ({service}) => {
     const {_id,title,img,description,price} = service;
@@ -12,7 +13,7 @@ const ServiceCard = ({service}) => {
         <p>{description.slice(0,50)}</p>
         <div className="card-actions justify-end">
           <p className='font-bold text-primary'>Price: ${price}</p>
-          <button className="btn btn-primary">Buy Now</button>
+          <Link href={`/services/${_id}`}><button className="btn btn-primary">View Details</button></Link>
         </div>
       </div>
     </div>
