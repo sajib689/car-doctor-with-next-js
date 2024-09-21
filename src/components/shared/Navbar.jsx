@@ -1,9 +1,14 @@
+'use client'
+import {  signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 
 const Navbar = () => {
+  const session = useSession()
+
+  console.log(session?.data?.user?.name)
     const links = 
     <>
     <li className='font-semibold hover:text-primary duration-300'><Link href='/'>Home</Link></li>
@@ -48,12 +53,18 @@ const Navbar = () => {
     </div>
     <div className="navbar-end">
       <div className='flex space-x-4 me-5'>
+        <p>{session?.data?.user?.name}</p>
       <FaCartPlus className='text-2xl hover:text-primary cursor-pointer'/>
       <IoIosSearch className='text-2xl hover:text-primary cursor-pointer'/>
 
       </div>
       <Link href='/' className="btn btn-outline btn-primary duration-300">Appointment</Link>
-      <Link href='/login' className="ms-2 btn btn-outline btn-primary duration-300">Login</Link>
+      {
+        session?.data?.user?.email ?
+        <button onclick={() => signOut()} className="ms-2 btn btn-outline btn-primary duration-300">Logout</button>
+        :
+        <Link href='/login' className="ms-2 btn btn-outline btn-primary duration-300">Login</Link>
+      }
     </div>
   </div>
    </div>

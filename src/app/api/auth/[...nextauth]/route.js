@@ -1,6 +1,9 @@
 import { connectDb } from "@/lib/connectDb";
 import NextAuth from "next-auth";
 import credentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcrypt";
+import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
     session: {
@@ -18,7 +21,7 @@ const handler = NextAuth({
                 if(!email || !password) {
                     return null;
                 }
-                const db = connectDb()
+                const db = await connectDb()
                 const currentUser =await db.collection('users').findOne({email})
                 if(!currentUser){
                     return null;
@@ -27,9 +30,17 @@ const handler = NextAuth({
                 if(!passwordMatch){
                     return null;
                 }
-                return true;
+                return currentUser;
             }
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET
+          }),
+          GitHubProvider({
+            clientId: process.env.GITHUB_ID,
+            clientSecret: process.env.GITHUB_SECRET
+          })
     ], 
     callbacks: {
         

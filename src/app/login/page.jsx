@@ -4,8 +4,12 @@ import { FaGoogle } from "react-icons/fa6";
 import { FaGithub,FaLinkedin  } from "react-icons/fa";
 import Link from "next/link";
 import {signIn} from "next-auth/react"
-
+import { useRouter } from "next/navigation";
 const Login = () => {
+  const router = useRouter()
+  const handleGoogleLogin = async (provider) => {
+    const resp = await signIn(provider)
+  }
   const handleSignUp = async (e) => {
     e.preventDefault()
     const form = e.target
@@ -14,6 +18,9 @@ const Login = () => {
     const resp = await signIn('credentials',{
       email, password,redirect: false,
     })
+    if(resp.status === 200){
+      router.push('/')
+    }
     console.log(resp)
 }
 
@@ -66,7 +73,7 @@ const Login = () => {
             </div>
           </form>
           <div className='flex justify-center items-center'>
-            <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full'><FaGoogle /></button>
+            <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full' onclick={() => handleGoogleLogin('google')}><FaGoogle /></button>
             <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full ms-2'><FaGithub /></button>
             <button className='btn btn-[#fff] text-primary hover:text-black hover:btn-primary duration-300 rounded-full ms-2'><FaLinkedin  /></button>
           
