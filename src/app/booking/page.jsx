@@ -12,6 +12,10 @@ const Booking = () => {
         .then(res => res.json())
         .then(data => setBooking(data.result))
     },[email])
+    const handleDelete =async (id) => {
+      const resp = await fetch(`http://localhost:3000/booking/api/delete-booking/${id}`)
+      
+    }
     return (
         <table className="min-w-full divide-y divide-gray-200 container mx-auto">
         <thead className="bg-gray-50">
@@ -36,7 +40,7 @@ const Booking = () => {
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.price}</td>
               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <button className="text-indigo-600 hover:text-indigo-900">Edit</button>
-                <button className="text-red-600 hover:text-red-900 ml-4">Delete</button>
+                <button onClick={() => handleDelete(_id)} className="text-red-600 hover:text-red-900 ml-4">Delete</button>
               </td>
             </tr>
           ))}
