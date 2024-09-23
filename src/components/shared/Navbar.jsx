@@ -14,6 +14,7 @@ const Navbar = () => {
     <li className='font-semibold hover:text-primary duration-300'><Link href='/'>Home</Link></li>
     <li className='font-semibold hover:text-primary duration-300'><Link href='/about'>About</Link></li>
     <li className='font-semibold hover:text-primary duration-300'><Link href='/services'>Services</Link></li>
+    <li className='font-semibold hover:text-primary duration-300'><Link href='/booking'>Booking</Link></li>
     <li className='font-semibold hover:text-primary duration-300'><Link href='/blog'>Blog</Link></li>
     <li className='font-semibold hover:text-primary duration-300'><Link href='/contact'>Contact</Link></li>
     </>

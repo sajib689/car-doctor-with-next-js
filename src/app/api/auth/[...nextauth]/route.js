@@ -7,6 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
     session: {
+        secret: "kjjjjjjjjjjjjjjjjjjjjjkhguygkjghoyu",
         strategy: 'jwt',
         maxAge: 30 * 24 * 60 * 60, // 30 days
     },
