@@ -1,4 +1,5 @@
 import { connectDb } from "@/lib/connectDb"
+import { ObjectId } from "mongodb"
 
 export const DELETE = async (request, {params}) => {
     const db = await connectDb()
@@ -6,7 +7,7 @@ export const DELETE = async (request, {params}) => {
 
     try {
       
-        const result = await bookingCollection.deleteOne({_id: params.id})
+        const result = await bookingCollection.deleteOne({_id: new ObjectId(params.id)})
         return Response.json({result})
     } catch (err) {
         console.error(err)
