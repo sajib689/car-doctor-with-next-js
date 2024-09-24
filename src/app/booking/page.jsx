@@ -19,10 +19,18 @@ const Booking = () => {
         const resp = await fetch(`http://localhost:3000/booking/api/delete-booking/${id}`, {
             method: 'DELETE',
         });
+         Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Delete Success",
+                showConfirmButton: false,
+                timer: 1500
+              });
 
         // Update the booking state after deleting
         if (resp.ok) {
             setBooking(booking.filter(item => item.id !== id));
+           
         }
     };
 
